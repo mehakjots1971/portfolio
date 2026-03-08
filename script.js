@@ -99,6 +99,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Theme Toggle Logic
+  const themeToggleBtn = document.getElementById("theme-toggle");
+  const themeIcon = themeToggleBtn.querySelector("i");
+
+  // Check for saved theme preference or use system preference
+  const savedTheme = localStorage.getItem("portfolio-theme");
+  const systemPrefersLight = window.matchMedia(
+    "(prefers-color-scheme: light)",
+  ).matches;
+
+  if (savedTheme === "light" || (!savedTheme && systemPrefersLight)) {
+    document.documentElement.setAttribute("data-theme", "light");
+    themeIcon.className = "fas fa-moon"; // Moon icon to switch back to dark
+  } else {
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeIcon.className = "fas fa-sun"; // Sun icon to switch to light
+  }
+
+  themeToggleBtn.addEventListener("click", () => {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    if (currentTheme === "light") {
+      document.documentElement.setAttribute("data-theme", "dark");
+      themeIcon.className = "fas fa-sun";
+      localStorage.setItem("portfolio-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      themeIcon.className = "fas fa-moon";
+      localStorage.setItem("portfolio-theme", "light");
+    }
+  });
+
   // Scroll Animations using Intersection Observer
   const animatedElements = document.querySelectorAll(
     ".project-card, .timeline-item, .skills-grid, .about-description",
