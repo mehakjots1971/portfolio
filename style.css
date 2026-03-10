@@ -4,22 +4,28 @@
  */
 :root {
   /* Dark Theme (Default) */
-  --bg-main: #0a0a0a;
-  --bg-alt: #121212;
-  --bg-card: #1e1e1e;
+  --bg-main: #050505;
+  --bg-alt: #0e0e0e;
+  --bg-card: #16161a;
   --text-primary: #ededed;
-  --text-secondary: #a0a0a0;
-  --accent-color: #a78bfa; /* Lavender */
-  --accent-hover: #c084fc;
-  --border-color: #2a2a2a;
-  --nav-bg: rgba(10, 10, 10, 0.85);
+  --text-secondary: #9ca3af;
+  --accent-color: #9e3df8; /* Dark Lavender for both themes */
+  --accent-hover: #9333ea;
+  --border-color: #27272a;
+  --nav-bg: rgba(5, 5, 5, 0.85);
 
   /* Radial gradient background */
-  --bg-gradient: radial-gradient(
-    circle at top center,
-    rgba(167, 139, 250, 0.15) 0%,
-    var(--bg-main) 100%
-  );
+  --bg-gradient:
+    radial-gradient(
+      circle at top right,
+      rgba(124, 58, 237, 0.25) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(124, 58, 237, 0.2) 0%,
+      transparent 45%
+    );
 
   /* Typography */
   --font-primary: "Inter", sans-serif;
@@ -34,22 +40,28 @@
 
 /* Light Theme Variables */
 [data-theme="light"] {
-  --bg-main: #fafafa;
-  --bg-alt: #f1f5f9;
+  --bg-main: #fcfcfd;
+  --bg-alt: #f3f4f6;
   --bg-card: #ffffff;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --accent-color: #8b5cf6; /* Darker Lavender */
-  --accent-hover: #7c3aed;
-  --border-color: #e2e8f0;
-  --nav-bg: rgba(250, 250, 250, 0.85);
+  --text-primary: #1f2937;
+  --text-secondary: #4b5563;
+  --accent-color: #9e3df8; /* Dark Lavender for both themes */
+  --accent-hover: #9333ea;
+  --border-color: #e5e7eb;
+  --nav-bg: rgba(252, 252, 253, 0.9);
 
   /* Radial gradient background */
-  --bg-gradient: radial-gradient(
-    circle at top center,
-    rgba(139, 92, 246, 0.12) 0%,
-    var(--bg-main) 100%
-  );
+  --bg-gradient:
+    radial-gradient(
+      circle at top right,
+      rgba(124, 58, 237, 0.12) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(139, 92, 246, 0.1) 0%,
+      transparent 50%
+    );
 }
 
 /* Reset & Base Styles */
@@ -68,7 +80,7 @@ body {
   background-attachment: fixed;
   color: var(--text-primary);
   line-height: 1.6;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow: hidden; /* Prevent scrolling across the whole body for single page feel */
   transition:
     background-color var(--transition-normal),
     color var(--transition-normal);
@@ -133,14 +145,43 @@ h6 {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 2rem;
+  width: 100%;
 }
 
+/* Page Section Container */
+#main-content {
+  /* Fill remaining height below navbar */
+  height: 100vh;
+  padding-top: 80px; /* Space for navbar */
+  position: relative;
+  overflow: hidden; /* Hide inactive sections */
+}
+
+/* Section Styling for Single Page Feel */
 section {
-  padding: 6rem 0;
+  position: absolute;
+  top: 80px; /* Below navbar */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  overflow-y: auto; /* Allow scrolling within the section if content is tall */
+  padding: 4rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease,
+    visibility 0.5s;
+  background-color: transparent; /* Rely on body gradient */
 }
 
-.bg-alt {
-  background-color: var(--bg-alt);
+/* Active Section */
+section.active-page {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  z-index: 10;
 }
 
 /* Buttons */
@@ -306,17 +347,15 @@ section {
 
 /* Hero Section */
 .hero {
-  height: 100vh;
-  min-height: 600px;
   display: flex;
   align-items: center;
-  position: relative;
+  position: absolute;
+  height: calc(100vh - 80px); /* Fill screen below nav */
 }
 
 .hero-content {
   max-width: 800px;
   padding-left: 10%;
-  animation: fadeInUp 1s ease forwards;
   opacity: 0;
 }
 
@@ -552,6 +591,7 @@ section {
   gap: 4rem;
   max-width: 900px;
   margin: 0 auto;
+  padding-bottom: 4rem; /* Extra space for footer */
 }
 
 .contact-form-container {
@@ -644,9 +684,14 @@ section {
 
 /* Footer */
 footer {
-  padding: 2.5rem 0;
+  padding: 1.5rem 0;
   text-align: center;
   border-top: 1px solid var(--border-color);
+  background-color: var(--nav-bg); /* Match nav for footer */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 5;
 }
 
 footer p {
@@ -693,6 +738,16 @@ footer p {
 }
 
 @media (max-width: 768px) {
+  #main-content {
+    padding-top: 70px; /* Adjust for mobile nav */
+  }
+
+  section {
+    top: 70px;
+    height: calc(100vh - 70px);
+    padding: 3rem 0;
+  }
+
   .hamburger {
     display: block;
   }

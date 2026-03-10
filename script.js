@@ -19,48 +19,77 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Navbar Scroll Effect
+  // Navbar Style Effect (Always applied for Single Page Layout)
   const navbar = document.getElementById("navbar");
+  navbar.classList.add("scrolled"); // Force background for better contrast
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
-  });
-
-  // Active Link Highlighting based on scroll position
+  // Single Page Navigation Logic
   const sections = document.querySelectorAll("section");
+  const allLinks = document.querySelectorAll('a[href^="#"]');
 
-  function highlightNavLink() {
-    let scrollY = window.scrollY;
+  function showSection(sectionId) {
+    // Handle '#' edge cases
+    if (sectionId === "#") sectionId = "#home";
 
-    sections.forEach((current) => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 100; // Account for fixed navbar
-      const sectionId = current.getAttribute("id");
-      const navLink = document.querySelector(
-        `.nav-links a[href*=${sectionId}]`,
+    // Remove active class from all sections
+    sections.forEach((sec) => {
+      sec.classList.remove("active-page");
+      sec.scrollTop = 0; // Reset scroll position when hiding
+    });
+
+    // Add active class to target section
+    const targetSection = document.querySelector(sectionId);
+    if (targetSection) {
+      targetSection.classList.add("active-page");
+
+      // Trigger animations on elements inside newly visible section
+      const animatedElements = targetSection.querySelectorAll(
+        ".project-card, .timeline-item, .skills-grid, .about-description, .hero-content",
       );
+      animatedElements.forEach((el, index) => {
+        setTimeout(() => {
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+        }, index * 100); // Stagger animations
+      });
+    }
 
-      if (navLink) {
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          // Remove active class from all links
-          document.querySelectorAll(".nav-link").forEach((link) => {
-            link.classList.remove("active");
-          });
-          // Add active class to current section link
-          navLink.classList.add("active");
-        }
+    // Update Navigation Links
+    navItems.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === sectionId) {
+        link.classList.add("active");
       }
     });
   }
 
-  window.addEventListener("scroll", highlightNavLink);
+  // Handle initial load based on URL hash
+  window.addEventListener("load", () => {
+    const hash = window.location.hash || "#home";
+    showSection(hash);
+  });
 
-  // Initial highlight check on load
-  highlightNavLink();
+  // Handle manual clicks on any hash link (nav or buttons)
+  allLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId =
+        document.activeElement.getAttribute("href") ||
+        link.getAttribute("href");
+
+      // Update URL hash without causing a page jump
+      history.pushState(null, null, targetId);
+
+      // Show corresponding section
+      showSection(targetId);
+    });
+  });
+
+  // Handle browser back/forward buttons
+  window.addEventListener("popstate", () => {
+    const hash = window.location.hash || "#home";
+    showSection(hash);
+  });
 
   // Contact Form Submission Mock
   const contactForm = document.getElementById("contact-form");
@@ -130,55 +159,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Scroll Animations using Intersection Observer
-  const animatedElements = document.querySelectorAll(
-    ".project-card, .timeline-item, .skills-grid, .about-description",
+  // Set initial state for animated elements, they will be animated by showSection()
+  const allAnimatedElements = document.querySelectorAll(
+    ".project-card, .timeline-item, .skills-grid, .about-description, .hero-content",
   );
-
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.15, // Trigger when 15% of the element is visible
-  };
-
-  const scrollObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // Add staggered animation by slightly delaying based on index could be done via CSS,
-        // but simple opacity/transform works well here.
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-        // Stop observing once animated
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  // Set initial state for animated elements
-  animatedElements.forEach((el) => {
+  allAnimatedElements.forEach((el) => {
     el.style.opacity = "0";
     el.style.transform = "translateY(30px)";
     el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
-    scrollObserver.observe(el);
-  });
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute("href");
-      if (targetId === "#") return;
-
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        const navHeight = document.getElementById("navbar").offsetHeight;
-        const targetPosition = targetElement.offsetTop - navHeight;
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: "smooth",
-        });
-      }
-    });
   });
 });

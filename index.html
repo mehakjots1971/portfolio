@@ -46,257 +46,267 @@
       </div>
     </nav>
 
-    <!-- Home (Hero Section) -->
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <h1 class="hero-title">Hi, I'm <span class="highlight">Mehak</span></h1>
-        <h2 class="hero-subtitle">Full Stack Developer</h2>
-        <p class="hero-tagline">
-          Building modern, responsive, and robust web applications with clean
-          code.
-        </p>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn primary-btn">View Projects</a>
-          <a href="#contact" class="btn secondary-btn">Contact Me</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-          <p class="about-description">
-            I am a highly motivated Full Stack Developer with a strong
-            foundation in designing and building scalable web applications. I
-            enjoy turning complex problems into intuitive, minimalist, and
-            responsive designs. With experience across the entire development
-            stack, I love building applications that provide excellent user
-            experiences.
+    <!-- Main Content Wrapper for Single Page Behavior -->
+    <div id="main-content">
+      <!-- Home (Hero Section) -->
+      <section id="home" class="hero active-page">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Hi, I'm <span class="highlight">Mehak</span>
+          </h1>
+          <h2 class="hero-subtitle">Full Stack Developer</h2>
+          <p class="hero-tagline">
+            Building modern, responsive, and robust web applications with clean
+            code.
           </p>
-          <div class="skills-container">
-            <h3>Key Skills</h3>
-            <div class="skills-grid">
-              <span class="skill-tag"
-                ><i class="fab fa-js"></i> JavaScript</span
-              >
-              <span class="skill-tag"><i class="fab fa-react"></i> React</span>
-              <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
-              <span class="skill-tag"
-                ><i class="fas fa-leaf"></i> Spring Boot</span
-              >
-              <span class="skill-tag"
-                ><i class="fas fa-database"></i> PostgreSQL</span
-              >
-              <span class="skill-tag"
-                ><i class="fas fa-network-wired"></i> WebRTC</span
-              >
-              <span class="skill-tag"
-                ><i class="fas fa-server"></i> REST APIs</span
-              >
-              <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
-            </div>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn primary-btn">View Projects</a>
+            <a href="#contact" class="btn secondary-btn">Contact Me</a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience bg-alt">
-      <div class="container">
-        <h2 class="section-title">Experience</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3 class="role">Software Engineering Intern</h3>
-              <h4 class="company">Tech Innovators Corp.</h4>
-              <span class="duration">Jan 2025 - Present</span>
-              <p class="description">
-                Developed scalable REST APIs using Java and Spring Boot.
-                Optimized PostgreSQL database queries, reducing average response
-                times by over 20%.
-              </p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <h3 class="role">Frontend Developer Intern</h3>
-              <h4 class="company">Creative Web Solutions</h4>
-              <span class="duration">May 2024 - Aug 2024</span>
-              <p class="description">
-                Built responsive, high-performance UI components using React and
-                JavaScript. Collaborated with the QA team to ensure
-                cross-browser compatibility and accessibility.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-      <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-          <!-- Project 1 -->
-          <div class="project-card">
-            <div class="project-info">
-              <h3 class="project-title">E-Commerce Web App</h3>
-              <p class="project-desc">
-                A full-stack e-commerce platform with an interactive shopping
-                cart, secure user authentication, and seamless payment
-                integration.
-              </p>
-              <div class="project-tech">
-                <span>React</span>
-                <span>Node.js</span>
-                <span>Express</span>
-                <span>MongoDB</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="btn secondary-btn" aria-label="GitHub Repo"
-                  ><i class="fab fa-github"></i> Source</a
-                >
-                <a href="#" class="btn primary-btn" aria-label="Live Demo"
-                  ><i class="fas fa-external-link-alt"></i> Demo</a
-                >
-              </div>
-            </div>
-          </div>
-          <!-- Project 2 -->
-          <div class="project-card">
-            <div class="project-info">
-              <h3 class="project-title">Real-time Video Chat</h3>
-              <p class="project-desc">
-                A peer-to-peer real-time video and text messaging application
-                allowing users to create rooms and connect instantly using
-                WebRTC.
-              </p>
-              <div class="project-tech">
-                <span>JavaScript</span>
-                <span>WebRTC</span>
-                <span>Socket.IO</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="btn secondary-btn" aria-label="GitHub Repo"
-                  ><i class="fab fa-github"></i> Source</a
-                >
-                <a href="#" class="btn primary-btn" aria-label="Live Demo"
-                  ><i class="fas fa-external-link-alt"></i> Demo</a
-                >
-              </div>
-            </div>
-          </div>
-          <!-- Project 3 -->
-          <div class="project-card">
-            <div class="project-info">
-              <h3 class="project-title">Project Management Board</h3>
-              <p class="project-desc">
-                A Kanban-style project management tool with drag-and-drop
-                functionality, allowing teams to track task statuses
-                efficiently.
-              </p>
-              <div class="project-tech">
-                <span>Java</span>
-                <span>Spring Boot</span>
-                <span>PostgreSQL</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="btn secondary-btn" aria-label="GitHub Repo"
-                  ><i class="fab fa-github"></i> Source</a
-                >
-                <a href="#" class="btn primary-btn" aria-label="Live Demo"
-                  ><i class="fas fa-external-link-alt"></i> Demo</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact bg-alt">
-      <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-wrapper">
-          <div class="contact-form-container">
-            <form id="contact-form" class="contact-form">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  placeholder="John Doe"
-                />
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  placeholder="john@example.com"
-                />
-              </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  required
-                  placeholder="Hello Mehak, I would like to..."
-                ></textarea>
-              </div>
-              <button type="submit" class="btn primary-btn btn-block">
-                Send Message
-                <i class="fas fa-paper-plane" style="margin-left: 5px"></i>
-              </button>
-            </form>
-          </div>
-          <div class="contact-info">
-            <h3>Let's Connect</h3>
-            <p>
-              I'm currently looking for new opportunities. Whether you have a
-              question or just want to say hi, I'll try my best to get back to
-              you!
+      <!-- About Section -->
+      <section id="about" class="about">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-content">
+            <p class="about-description">
+              I am a highly motivated Full Stack Developer with a strong
+              foundation in designing and building scalable web applications. I
+              enjoy turning complex problems into intuitive, minimalist, and
+              responsive designs. With experience across the entire development
+              stack, I love building applications that provide excellent user
+              experiences.
             </p>
-            <div class="social-links">
-              <a
-                href="https://github.com/yourusername"
-                target="_blank"
-                aria-label="GitHub"
-                ><i class="fab fa-github"></i
-              ></a>
-              <a
-                href="https://linkedin.com/in/yourusername"
-                target="_blank"
-                aria-label="LinkedIn"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-              <a href="mailto:your.email@example.com" aria-label="Email"
-                ><i class="fas fa-envelope"></i
-              ></a>
+            <div class="skills-container">
+              <h3>Key Skills</h3>
+              <div class="skills-grid">
+                <span class="skill-tag"
+                  ><i class="fab fa-js"></i> JavaScript</span
+                >
+                <span class="skill-tag"
+                  ><i class="fab fa-react"></i> React</span
+                >
+                <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
+                <span class="skill-tag"
+                  ><i class="fas fa-leaf"></i> Spring Boot</span
+                >
+                <span class="skill-tag"
+                  ><i class="fas fa-database"></i> PostgreSQL</span
+                >
+                <span class="skill-tag"
+                  ><i class="fas fa-network-wired"></i> WebRTC</span
+                >
+                <span class="skill-tag"
+                  ><i class="fas fa-server"></i> REST APIs</span
+                >
+                <span class="skill-tag"
+                  ><i class="fab fa-git-alt"></i> Git</span
+                >
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="experience bg-alt">
+        <div class="container">
+          <h2 class="section-title">Experience</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3 class="role">Software Engineering Intern</h3>
+                <h4 class="company">Tech Innovators Corp.</h4>
+                <span class="duration">Jan 2025 - Present</span>
+                <p class="description">
+                  Developed scalable REST APIs using Java and Spring Boot.
+                  Optimized PostgreSQL database queries, reducing average
+                  response times by over 20%.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h3 class="role">Frontend Developer Intern</h3>
+                <h4 class="company">Creative Web Solutions</h4>
+                <span class="duration">May 2024 - Aug 2024</span>
+                <p class="description">
+                  Built responsive, high-performance UI components using React
+                  and JavaScript. Collaborated with the QA team to ensure
+                  cross-browser compatibility and accessibility.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="projects">
+        <div class="container">
+          <h2 class="section-title">Projects</h2>
+          <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+              <div class="project-info">
+                <h3 class="project-title">E-Commerce Web App</h3>
+                <p class="project-desc">
+                  A full-stack e-commerce platform with an interactive shopping
+                  cart, secure user authentication, and seamless payment
+                  integration.
+                </p>
+                <div class="project-tech">
+                  <span>React</span>
+                  <span>Node.js</span>
+                  <span>Express</span>
+                  <span>MongoDB</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn secondary-btn" aria-label="GitHub Repo"
+                    ><i class="fab fa-github"></i> Source</a
+                  >
+                  <a href="#" class="btn primary-btn" aria-label="Live Demo"
+                    ><i class="fas fa-external-link-alt"></i> Demo</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="project-card">
+              <div class="project-info">
+                <h3 class="project-title">Real-time Video Chat</h3>
+                <p class="project-desc">
+                  A peer-to-peer real-time video and text messaging application
+                  allowing users to create rooms and connect instantly using
+                  WebRTC.
+                </p>
+                <div class="project-tech">
+                  <span>JavaScript</span>
+                  <span>WebRTC</span>
+                  <span>Socket.IO</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn secondary-btn" aria-label="GitHub Repo"
+                    ><i class="fab fa-github"></i> Source</a
+                  >
+                  <a href="#" class="btn primary-btn" aria-label="Live Demo"
+                    ><i class="fas fa-external-link-alt"></i> Demo</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Project 3 -->
+            <div class="project-card">
+              <div class="project-info">
+                <h3 class="project-title">Project Management Board</h3>
+                <p class="project-desc">
+                  A Kanban-style project management tool with drag-and-drop
+                  functionality, allowing teams to track task statuses
+                  efficiently.
+                </p>
+                <div class="project-tech">
+                  <span>Java</span>
+                  <span>Spring Boot</span>
+                  <span>PostgreSQL</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" class="btn secondary-btn" aria-label="GitHub Repo"
+                    ><i class="fab fa-github"></i> Source</a
+                  >
+                  <a href="#" class="btn primary-btn" aria-label="Live Demo"
+                    ><i class="fas fa-external-link-alt"></i> Demo</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact bg-alt">
+        <div class="container">
+          <h2 class="section-title">Get In Touch</h2>
+          <div class="contact-wrapper">
+            <div class="contact-form-container">
+              <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="john@example.com"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                    placeholder="Hello Mehak, I would like to..."
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn primary-btn btn-block">
+                  Send Message
+                  <i class="fas fa-paper-plane" style="margin-left: 5px"></i>
+                </button>
+              </form>
+            </div>
+            <div class="contact-info">
+              <h3>Let's Connect</h3>
+              <p>
+                I'm currently looking for new opportunities. Whether you have a
+                question or just want to say hi, I'll try my best to get back to
+                you!
+              </p>
+              <div class="social-links">
+                <a
+                  href="https://github.com/yourusername"
+                  target="_blank"
+                  aria-label="GitHub"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a
+                  href="https://linkedin.com/in/yourusername"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="mailto:your.email@example.com" aria-label="Email"
+                  ><i class="fas fa-envelope"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End Main Content Wrapper -->
 
     <!-- Footer -->
-    <footer>
+    <!-- <footer>
       <div class="container">
         <p>&copy; 2026 Mehak. Designed & Built with Vanilla HTML/CSS/JS.</p>
       </div>
-    </footer>
+    </footer> -->
 
     <!-- Use local script -->
     <script src="script.js"></script>
